@@ -1,0 +1,1 @@
+/usr/bin/cc -g CMakeFiles/test.dir/src/main.c.o CMakeFiles/test.dir/src/threadpool.c.o -o ../bin/test 

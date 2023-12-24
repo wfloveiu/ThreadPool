@@ -1,0 +1,1 @@
+/usr/bin/c++ -g CMakeFiles/test_classA.dir/src/ThreadPool.cpp.o CMakeFiles/test_classA.dir/src/main.cpp.o -o ../bin/test_classA 
