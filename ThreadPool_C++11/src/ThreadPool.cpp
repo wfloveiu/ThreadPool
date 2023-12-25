@@ -25,7 +25,6 @@ void ThreadPool::addThreadSize(int size)
     {
         workers.emplace_back([this]{this->DoTask(); });
         {
-            unique_lock<mutex> lock{_lock};
             _idlThrNum++;
         }
         // workers.back().detach();
@@ -54,10 +53,8 @@ void ThreadPool::DoTask()
         if(_idlThrNum>0 && workers.size() > _initSize)
             return;
 #endif
-        {
-            unique_lock<mutex> lock{ _lock }; // 为什么加锁
-            _idlThrNum++;
-        }
+      
+        _idlThrNum++;
 
         // 不需要唤醒生产者生产任务吗?
         // 不需要，因为使用的是任务队列，不会出现生产者被阻塞的情况
